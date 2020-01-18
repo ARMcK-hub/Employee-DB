@@ -1,42 +1,42 @@
 departments
 ----
-dept_no str
-dept_name str
+dept_no VARCHAR(4) PK
+dept_name VARCHAR(50)
 
 dept_emp
 ----
-emp_no int
-dept_no str FK >- departments.dept_no
-from_date date
-to_date date
+emp_no INTEGER PK
+dept_no VARCHAR(4) FK >- departments.dept_no
+from_date DATE
+to_date DATE
 
 
 dept_manager
 ----
-dept_no str FK >- dept_emp.dept_no
-emp_no int FK >- employees.emp_no
-from_date date
-to_date date
+dept_no VARCHAR(4) PK FK >- departments.dept_no
+emp_no INTEGER FK >- employees.emp_no
+from_date DATE
+to_date DATE
 
 employees
 ----
-emp_no FK >- dept_emp.emp_no
-birth_date date
-first_name str
-last_name str
-gender str
-hire_date date
+emp_no INTEGER PK FK >- dept_emp.emp_no
+birth_date DATE
+first_name VARCHAR(255)
+last_name VARCHAR(255)
+gender VARCHAR(1)
+hire_date DATE
 
 salaries
 ----
-emp_no int FK >- employees.emp_no
-salary int
-from_date date
-to_date date
+emp_no INTEGER PK FK >- employees.emp_no
+salary INTEGER
+from_date DATE
+to_date DATE
 
-titels
+titles
 ----
-emp_no int FK >- salaries.emp_no
-title str
-from_date date
-to_date date
+emp_no INTEGER PK FK >- employees.emp_no
+title VARCHAR(255)
+from_date DATE
+to_date DATE
